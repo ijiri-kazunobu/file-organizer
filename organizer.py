@@ -1,6 +1,18 @@
 from pathlib import Path
+
+
+CATEGORIES = {
+    ".pdf": "documents",
+    ".txt": "documents",
+    ".jpg": "images",
+    ".png": "images",
+    ".csv": "data",
+}
+
+
 folder = Path("sample_files")
 
 for item in folder.iterdir():
     if item.is_file():
-        print(f"{item.name} -> {item.suffix}")
+        folder_name = CATEGORIES.get(item.suffix, "others")
+        print(f"{item.name} -> {folder_name}/")
