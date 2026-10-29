@@ -15,4 +15,5 @@ folder = Path("sample_files")
 for item in folder.iterdir():
     if item.is_file():
         folder_name = CATEGORIES.get(item.suffix, "others")
-        print(f"{item.name} -> {folder_name}/")
+        dest = folder / folder_name / item.name
+        print(f"{item} -> {dest}")
